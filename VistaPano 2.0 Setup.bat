@@ -1,5 +1,5 @@
 @echo off
-
+REM VistaPano 2.0 Setup Script by Brandon Chin
 REM Check if script was run in admin
 
 fltmc >nul 2>&1
