@@ -16,20 +16,16 @@ set "LAYERS=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Lay
 reg.exe add "%LAYERS%" /v "C:\Program Files\Duerr\VistaSoft\BinariesCore\VistaSoft\VistaSoft.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 reg.exe add "%LAYERS%" /v "C:\Program Files\Duerr\VistaSoft\Binaries\VistaSoft\VistaSoft.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Pano\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Pano\VAPAN_ETH.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Pano\VAPAN_ETH_S.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Pano\VAPAN_PLX_S.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\CBCT\WidePano\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\CBCT\WidePano\VAKPAR_CTG.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\CBCT\WidePano\VAKPAR_FTG.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Fast\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Fast\VAPAN_ETH.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Fast\VAPAN_ETH_S.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\Ceph\WideCeph\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\Ceph\WideCeph\VAPAN_FTG.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Norm\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Norm\VAPAN_ETH.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaPano\Acquisition\Ceph_Norm\VAPAN_ETH_S.exe" /t REG_SZ /d "~ RUNASADMIN" /f
-
-reg.exe add "%LAYERS%" /v "C:\Program Files (x86)\Duerr\VistaPano\exe\VistaPano.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\Pano\WidePano\VAKCAP.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\Pano\WidePano\VAPAN_CTG.exe" /t REG_SZ /d "~ RUNASADMIN" /f
+reg.exe add "%LAYERS%" /v "C:\ProgramData\Duerr\VistaSoft\WorkstationService\VistaVoxPlugin\Acquisition\Pano\WidePano\VAPAN_FTG.exe" /t REG_SZ /d "~ RUNASADMIN" /f
 
 REM Adding permissions for everyone on folders
 
