@@ -15,3 +15,17 @@ Redudant work automated:
 - Change of User Access Control Disabling EnableLUA
 - Changing Permissions for core folders for Everyone and Full Control
 - Creating inbound and outbound TCP Port rules in order to communicate with the VistaPano 2.0
+
+### Provecta S-Pan Setup.bat
+
+Purpose: Similar to the VistaPano 2.0 but curated for the Provecta S-Pan instead
+
+Redudant work automated:
+- Same as VistaPano 2.0 but different file paths for pano applications
+
+### Server Setup.bat
+
+Purpose: Setting up ports and permissions for VistaSoft Server workstations
+
+Redudant work automated:
+- Same as VistaPano 2.0 but no Pano Applications added to rule
