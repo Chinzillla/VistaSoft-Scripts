@@ -6,6 +6,20 @@ This library is a culmination of the Scripts that I have built for my self as a 
 
 ## Library
 
+### 3D Prime Setup.bat
+
+Purpose: Created to automate post-installation setup for VistaSoft 3D Prime workstations.
+
+Redudant work automated:
+- Permissions for run as administrator on core VistaSoft and 3D Prime acquisition applications
+- Changing permissions for core Duerr and VistaSoft data folders for Everyone and Full Control
+- Disabling Memory Integrity, Kernel Shadow Stack, and the Vulnerable Driver Block List
+- Change of User Access Control disabling EnableLUA
+- Creating a daily scheduled shutdown task for the workstation
+- Enabling the Ultimate Performance power plan and disabling USB selective suspend
+- Disabling USB hub power saving and Fast Startup
+- Installing available Windows Updates
+
 ### VistaPano 2.0 Setup.bat
 
 Purpose: Created to automate the entire setup process for a VistaPano 2.0 Post Software Installation.
