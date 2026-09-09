@@ -84,6 +84,37 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v Hib
 
 REM Install Windows Updates
 
-powershell.exe -NoProfile -Command "$ErrorActionPreference='Stop'; $session=New-Object -ComObject Microsoft.Update.Session; $searcher=$session.CreateUpdateSearcher(); Write-Host 'Searching for updates...'; $result=$searcher.Search('IsInstalled=0 and IsHidden=0'); $updates=New-Object -ComObject Microsoft.Update.UpdateColl; foreach($update in $result.Updates){if(-not $update.EulaAccepted){$update.AcceptEula()}; Write-Host ('Found: '+$update.Title); [void]$updates.Add($update)}; if($updates.Count -eq 0){Write-Host 'No applicable updates found.'; exit 0}; $downloader=$session.CreateUpdateDownloader(); $downloader.Updates=$updates; [void]$downloader.Download(); $ready=New-Object -ComObject Microsoft.Update.UpdateColl; foreach($update in $updates){if($update.IsDownloaded){[void]$ready.Add($update)}}; if($ready.Count -eq 0){throw 'Updates were found but none downloaded successfully.'}; $installer=$session.CreateUpdateInstaller(); $installer.Updates=$ready; $installResult=$installer.Install(); Write-Host ('Install result code: '+$installResult.ResultCode); Write-Host ('Restart required: '+$installResult.RebootRequired); if($installResult.ResultCode -notin 2,3){exit 2}"
+powershell.exe -NoProfile -Command ^
+ "$ErrorActionPreference='Stop';" ^
+ "$session=New-Object -ComObject Microsoft.Update.Session;" ^
+ "$searcher=$session.CreateUpdateSearcher();" ^
+ "Write-Host 'Searching for updates...';" ^
+ "$result=$searcher.Search('IsInstalled=0 and IsHidden=0');" ^
+ "$updates=New-Object -ComObject Microsoft.Update.UpdateColl;" ^
+ "foreach($update in $result.Updates){if(-not $update.EulaAccepted){$update.AcceptEula()}; Write-Host ('Found: '+$update.Title); [void]$updates.Add($update)};" ^
+ "if($updates.Count -eq 0){Write-Host 'No applicable updates found.'; exit 0};" ^
+ "$downloader=$session.CreateUpdateDownloader();" ^
+ "$downloader.Updates=$updates;" ^
+ "[void]$downloader.Download();" ^
+ "$ready=New-Object -ComObject Microsoft.Update.UpdateColl;" ^
+ "foreach($update in $updates){if($update.IsDownloaded){[void]$ready.Add($update)}};" ^
+ "if($ready.Count -eq 0){Write-Host 'Updates were found but none downloaded successfully.'; exit 2};" ^
+ "$installer=$session.CreateUpdateInstaller();" ^
+ "$installer.Updates=$ready;" ^
+ "$installResult=$installer.Install();" ^
+ "Write-Host ('Install result code: '+$installResult.ResultCode);" ^
+ "Write-Host ('Restart required: '+$installResult.RebootRequired);" ^
+ "if($installResult.RebootRequired){exit 10} else {exit 0}"
+
+set "UPDATE_EXIT=%ERRORLEVEL%"
+
+if "%UPDATE_EXIT%"=="10" (
+    echo Updates require a restart. Restarting the computer in 10 seconds...
+    shutdown.exe /r /f /t 10 /c "Restart required after 3D Prime setup updates."
+) else if "%UPDATE_EXIT%"=="0" (
+    echo No restart required after Windows Update.
+) else (
+    echo Windows Update encountered an error. Exit code: %UPDATE_EXIT%
+)
 
 pause

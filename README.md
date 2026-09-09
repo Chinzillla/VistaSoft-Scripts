@@ -18,7 +18,7 @@ Redudant work automated:
 - Creating a daily scheduled shutdown task for the workstation
 - Enabling the Ultimate Performance power plan and disabling USB selective suspend
 - Disabling USB hub power saving and Fast Startup
-- Installing available Windows Updates
+- Installing available Windows Updates and restarting only when a reboot is required
 
 ### VistaPano 2.0 Setup.bat
 
