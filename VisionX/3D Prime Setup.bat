@@ -31,7 +31,6 @@ REM Adding permissions for everyone on folders
 icacls "C:\Program Files (x86)\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
 icacls "C:\ProgramData\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
 icacls "C:\Program Files\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
-icacls "C:\VisionXData" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
 
 REM Disabling: Memory Integrity, Kernel Shadow Stack, Vulnerable Driver Block List
 
