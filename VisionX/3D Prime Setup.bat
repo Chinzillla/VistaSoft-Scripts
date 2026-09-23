@@ -32,20 +32,9 @@ icacls "C:\Program Files (x86)\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T 
 icacls "C:\ProgramData\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
 icacls "C:\Program Files\Air Techniques" /grant:r "*S-1-1-0:(OI)(CI)F" /T /C
 
-REM Disabling: Memory Integrity, Kernel Shadow Stack, Vulnerable Driver Block List
-
-reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v Enabled /t REG_DWORD /d 0 /f
-reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks" /v Enabled /t REG_DWORD /d 0 /f
-reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v VulnerableDriverBlocklistEnable /t REG_DWORD /d 0 /f
-
 REM Disable User Access Control
 
 reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d 0 /f
-
-REM Setup Task Scheduled Shutdown time
-
-set "SHUTDOWN_TIME=23:00"
-schtasks.exe /create /tn "3D Prime VisionX Daily Shutdown" /tr "%SystemRoot%\System32\shutdown.exe /s /f /t 60" /sc DAILY /st "%SHUTDOWN_TIME%" /ru SYSTEM /rl HIGHEST /f
 
 REM Setup the ultimate performance power plan
 
